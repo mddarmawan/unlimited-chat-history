@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'net.neoforged.moddev' version '2.0.148'
+    id 'com.modrinth.minotaur' version '2.+'
     id 'idea'
 }
 
@@ -181,4 +182,20 @@ idea {
         downloadSources = true
         downloadJavadoc = true
     }
+}
+
+// Publish to Modrinth. Requires a personal access token with the CREATE_VERSION scope
+// (and PROJECT_WRITE if you also run modrinthSyncBody), passed via the MODRINTH_TOKEN env var:
+//   MODRINTH_TOKEN=xxxxx ./gradlew modrinth
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = "unlimited-chat-history"
+    versionNumber = mod_version
+    versionName = "${mod_name} ${mod_version}"
+    versionType = "release"
+    uploadFile = jar
+    gameVersions = ["26.1.2"]
+    loaders = ["neoforge"]
+    changelog = "Initial release. Raises the client chat history to 16384 lines. NeoForge port of More Chat History by JackFred (CC0-1.0)."
+    syncBodyFrom = rootProject.file("README.md").text
 }
