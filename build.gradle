@@ -191,7 +191,7 @@ def modrinthToken = System.getenv("MODRINTH_TOKEN") ?: project.findProperty("mod
 
 modrinth {
     token = modrinthToken
-    projectId = "unlimited-chat-history"
+    projectId = "uch"
     versionNumber = mod_version
     versionName = "${mod_name} ${mod_version}"
     versionType = "release"
