@@ -198,6 +198,7 @@ modrinth {
     uploadFile = jar
     gameVersions = ["26.1.2"]
     loaders = ["neoforge"]
+    environment = "client_only"
     changelog = "Initial release. Raises the client chat history to 16384 lines. NeoForge port of More Chat History by JackFred (CC0-1.0)."
     syncBodyFrom = rootProject.file("README.md").text
 }
