@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.mddarmawan.unlimitedchathistory.mixins",
+  "compatibilityLevel": "JAVA_13",
+  "client": [
+    "ChatComponentMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

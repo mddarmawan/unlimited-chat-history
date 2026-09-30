@@ -1,0 +1,34 @@
+/*
+ * NeoForge port of More Chat History by JackFred (https://modrinth.com/mod/morechathistory),
+ * released under CC0-1.0. Original mixin logic adapted for NeoForge.
+ */
+package io.github.mddarmawan.unlimitedchathistory.mixins;
+
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import net.minecraft.client.gui.components.ChatComponent;
+import net.minecraft.util.ArrayListDeque;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+
+@Mixin(ChatComponent.class)
+public class ChatComponentMixin {
+    private static final int EXPANDED_MAX_HISTORY = 16384;
+
+    @WrapOperation(
+            method = "<init>",
+            at = @At(value = "NEW", args = "class=net/minecraft/util/ArrayListDeque")
+    )
+    private ArrayListDeque<String> unlimitedchathistory$expandQueue(int capacity, Operation<ArrayListDeque<String>> original) {
+        return original.call(EXPANDED_MAX_HISTORY);
+    }
+
+    @ModifyExpressionValue(
+            method = {"addMessageToDisplayQueue", "addMessageToQueue", "addRecentChat"},
+            at = @At(value = "CONSTANT", args = "intValue=100")
+    )
+    private int unlimitedchathistory$increaseMaxHistory(int original) {
+        return EXPANDED_MAX_HISTORY;
+    }
+}
