@@ -187,8 +187,10 @@ idea {
 // Publish to Modrinth. Requires a personal access token with the CREATE_VERSION scope
 // (and PROJECT_WRITE if you also run modrinthSyncBody), passed via the MODRINTH_TOKEN env var:
 //   MODRINTH_TOKEN=xxxxx ./gradlew modrinth
+def modrinthToken = System.getenv("MODRINTH_TOKEN") ?: project.findProperty("modrinthToken")
+
 modrinth {
-    token = System.getenv("MODRINTH_TOKEN")
+    token = modrinthToken
     projectId = "unlimited-chat-history"
     versionNumber = mod_version
     versionName = "${mod_name} ${mod_version}"
