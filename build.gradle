@@ -10,7 +10,7 @@ tasks.named('wrapper', Wrapper).configure {
     // Define wrapper values here so as to not have to always do so when updating gradlew.properties.
     // Switching this to Wrapper.DistributionType.ALL will download the full gradle sources that comes with
     // documentation attached on cursor hover of gradle classes and methods. However, this comes with increased
-    // file size for Gradle. If you do switch this to ALL, run the Gradle wrapper task twice afterwards.
+    // file size for Gradle. If switched to ALL, run the Gradle wrapper task twice afterwards.
     // (Verify by checking gradle/wrapper/gradle-wrapper.properties to see if distributionUrl now points to `-all`)
     distributionType = Wrapper.DistributionType.BIN
 }
@@ -70,7 +70,7 @@ neoForge {
 
         data {
             clientData()
-            // example of overriding the workingDirectory set in configureEach above, uncomment if you want to use it
+            // example of overriding the workingDirectory set in configureEach above; uncomment to use it
             // gameDirectory = project.file('run-data')
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
@@ -87,7 +87,7 @@ neoForge {
             systemProperty 'forge.logging.markers', 'REGISTRIES'
 
             // Recommended logging level for the console
-            // You can set various levels here.
+            // Various levels can be set here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             logLevel = org.slf4j.event.Level.DEBUG
         }
@@ -185,7 +185,7 @@ idea {
 }
 
 // Publish to Modrinth. Requires a personal access token with the CREATE_VERSION scope
-// (and PROJECT_WRITE if you also run modrinthSyncBody), passed via the MODRINTH_TOKEN env var:
+// (and PROJECT_WRITE for modrinthSyncBody), passed via the MODRINTH_TOKEN env var:
 //   MODRINTH_TOKEN=xxxxx ./gradlew modrinth
 def modrinthToken = System.getenv("MODRINTH_TOKEN") ?: project.findProperty("modrinthToken")
 

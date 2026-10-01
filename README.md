@@ -24,13 +24,13 @@ Jar output: `build/libs/unlimitedchathistory-1.0.0.jar`.
 ```
 
 Gradle downloads Minecraft + NeoForge and launches the game with the mod loaded.
-Spam some chat lines, then scroll up — you can go far past 100.
+Spam a few chat lines, then scroll up; the history goes well past 100.
 
 ## Install
 
 1. Install NeoForge for Minecraft 26.1.2 (easiest via [Prism Launcher](https://prismlauncher.org/)).
 2. Drop `unlimitedchathistory-1.0.0.jar` into the instance's `mods/` folder.
-3. Client-side only — don't put it on a server.
+3. Client-side only; do not install on a server.
 
 ## Layout
 

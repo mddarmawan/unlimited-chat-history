@@ -1,8 +1,8 @@
 # Mod metadata for Unlimited Chat History.
 # Format: TOML. Docs: https://docs.neoforged.net/docs/gettingstarted/modfiles
 
-# The license for you mod. This is mandatory metadata and allows for easier comprehension of your redistributive properties.
-# Review your options at https://choosealicense.com/. All rights reserved is the default copyright stance, and is thus the default here.
+# The license for the mod. Mandatory metadata describing redistributive terms.
+# See https://choosealicense.com/ for license options. All Rights Reserved is the default.
 license="${mod_license}"
 
 # A URL to refer people to when problems occur with this mod
@@ -41,11 +41,11 @@ Increases the length of the client chat history to 16384 lines.
 NeoForge port of More Chat History by JackFred, used under CC0-1.0.
 '''
 
-# The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
+# The [[mixins]] block registers the mixin config with FML.
 [[mixins]]
 config="${mod_id}.mixins.json"
 
-# The [[accessTransformers]] block allows you to declare where your AT file is.
+# The [[accessTransformers]] block declares the access transformer file.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
 #[[accessTransformers]]
 #file="META-INF/accesstransformer.cfg"
